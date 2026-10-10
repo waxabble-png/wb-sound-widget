@@ -150,10 +150,9 @@ $DefaultConfig = [ordered]@{
         done    = [ordered]@{ enabled = $true; volume = 1.0;  file = 'sounds/task-done.wav' }
         ask     = [ordered]@{ enabled = $true; volume = 1.0;  file = 'sounds/need-attention.wav' }
         notify  = [ordered]@{ enabled = $true; volume = 0.9;  file = 'sounds/notify.wav' }
-        # 按下 / 松手的轻响默认关：对应的 d1.mp3 / d2.mp3 在 presets 里，同样不入库。
-        # 放好素材后把 enabled 改回 true 就有。
-        press   = [ordered]@{ enabled = $false; volume = 0.55; file = 'sounds/presets/d1.mp3' }
-        release = [ordered]@{ enabled = $false; volume = 0.55; file = 'sounds/presets/d2.mp3' }
+        # 按下 / 松手的轻响（d1.mp3 / d2.mp3 来自 DSH，MIT 协议，已随仓库分发）
+        press   = [ordered]@{ enabled = $true; volume = 0.55; file = 'sounds/presets/d1.mp3' }
+        release = [ordered]@{ enabled = $true; volume = 0.55; file = 'sounds/presets/d2.mp3' }
     }
     events   = [ordered]@{ done = $true; ask = $true; notify = $true }
     bubble   = [ordered]@{ autoCloseMs = 4600; showOnEvent = $true }

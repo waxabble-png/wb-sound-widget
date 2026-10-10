@@ -20,11 +20,8 @@ powershell -ExecutionPolicy Bypass -File install.ps1
 
 装完**重启一次 WorkBuddy**，之后就不用管了。
 
-> ⚠️ **小鲸鱼图片需要自备**：`widget/assets/whale.png` 带第三方版权、仓库里没有，
-> 第一次启动挂件会弹窗告诉你缺什么、要放到哪。放好再启动一次就能看到它了。
-> 不执着于鲸鱼形象的话，放**任意一张带透明背景的 PNG** 也行 —— 挂件会自动把四周的透明边裁掉。
->
-> 三枚默认提示音是自制合成的，clone 下来就能响；`sounds/presets/` 里的预置音效同样不入库，想要自己补。
+> 素材都随仓库分发，clone 下来就能用 —— 鲸鱼图片、动图、全部音效都齐了，不用自己再准备什么。
+> （素材来自 DSH 小鲸鱼挂件，MIT 协议；唯一没带的是一枚 Minecraft 游戏音效，见「许可」一节。）
 
 安装方式有两种（全局钩子 / 标准 WorkBuddy 插件），见下面「三、安装」和「4）换一种装法」。
 
@@ -69,7 +66,7 @@ wb-sound-widget/
 │   ├── play-sound.ps1             # 独立播放器（挂件没开时用）
 │   ├── wb-notify.ps1              # 手动发提醒（带中文帮助 / -Demo 演示）
 │   └── wb-notify.cmd              # 同上，纯命令行版
-├── docs/                          # 外观预览图（版权原因不入库）
+├── docs/                          # 外观预览图
 ├── sounds/
 │   ├── task-done.wav              # 自制：上行琶音「完成」
 │   ├── need-attention.wav         # 自制：叮-咚「请处理」
@@ -450,10 +447,14 @@ powershell -File widget\wb-widget.ps1 -SnapshotTo "$env:TEMP\shot.png" -Snapshot
 
 ## 许可
 
-代码 MIT（见 `LICENSE`）。
+本仓库代码以 MIT 协议分发（见 `LICENSE`）。
 
-**版权素材不入库**：`widget/assets/`（鲸鱼图片与动图）、`sounds/presets/`（预置音效）、`docs/`（截图）
-来自第三方（DSH 小鲸鱼挂件），仅限自用，**本仓库不分发它们**，所以仓库里看不到这几个目录。
-自己使用时把它们放回对应位置即可，`.gitignore` 已按此配置。
+**第三方素材（已随仓库分发，同样按 MIT）**：`widget/assets/` 里的鲸鱼图片与动图、
+`sounds/presets/` 里的预置音效（D1 / D2 / Ya1 / Ya2 / task-end-a）均来自
+[DSH 小鲸鱼挂件](https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget)（MIT 协议）。
+
+**唯一例外**：`sounds/presets/minecraft-exp-orb.wav` 取自 Minecraft 游戏，版权归 Mojang、
+不在 DSH 的 MIT 覆盖范围内，因此**未随仓库分发**。默认音效不使用它，不影响正常使用；
+想要这枚音效请自行从游戏内获取。
 
 `sounds/*.wav`（三枚自制音效）由 `tools/make-sounds.py` 合成，无第三方版权，可随仓库分发。

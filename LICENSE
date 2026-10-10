@@ -22,12 +22,13 @@ SOFTWARE.
 
 ----------------------------------------------------------------------
 
-Third-party assets NOT included in this repository:
+Third-party assets included in this repository (MIT, from the
+"DSH whale widget" project — https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget):
 
   widget/assets/   (whale artwork & animations)
-  sounds/presets/  (preset sound effects)
+  sounds/presets/  (preset sound effects, EXCEPT minecraft-exp-orb.wav)
   docs/            (screenshots)
 
-These files originate from the "DSH whale widget" and are NOT distributed
-with this repository. Place them in the corresponding directories yourself
-if you want the widget to look the same. See README.md for details.
+Exception: sounds/presets/minecraft-exp-orb.wav originates from the game
+Minecraft and is NOT covered by the above MIT license, so it is not
+distributed with this repository. The default configuration does not use it.

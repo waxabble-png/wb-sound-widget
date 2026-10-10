@@ -1,12 +1,13 @@
 # ============================================================================
-#  版权素材：不入库
-#  widget/assets/ 里的鲸鱼图片、sounds/presets/ 里的预置音效、docs/ 里的截图
-#  都带有 DSH 小鲸鱼挂件的形象/素材，仅限自用，不随本仓库分发。
-#  clone 之后把这三样自己放回去即可正常使用（README 有说明）。
+#  素材说明
+#  widget/assets/ 、sounds/presets/ 、docs/ 里的素材来自 DSH 小鲸鱼挂件
+#  （https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget，MIT 协议），
+#  已随本仓库分发，clone 后无需再自备。
+#
+#  唯一例外：minecraft-exp-orb.wav 来自 Minecraft 游戏，版权归 Mojang，
+#  DSH 的 MIT 协议覆盖不到它，所以单独排除。默认音效不使用它，不影响使用。
 # ============================================================================
-widget/assets/
-sounds/presets/
-docs/
+sounds/presets/minecraft-exp-orb.wav
 
 # ============================================================================
 #  本机数据 / 个人配置（只在安装目录出现，这里防御性排除）
