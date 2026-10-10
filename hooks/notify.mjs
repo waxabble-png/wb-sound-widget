@@ -67,7 +67,9 @@ function resolveAsset(rel) {
 const DEFAULT_CONFIG = {
   sound: {
     mute: false,
-    done: { enabled: true, volume: 1.0, file: 'sounds/presets/minecraft-exp-orb.wav' },
+    // ⚠️ 默认音效必须指向随仓库分发的自制音效（sounds/ 下三枚）；
+    //    presets/ 里的素材不入库，新 clone 的机器上没有，指向它们会导致「不响」。
+    done: { enabled: true, volume: 1.0, file: 'sounds/task-done.wav' },
     ask: { enabled: true, volume: 1.0, file: 'sounds/need-attention.wav' },
     notify: { enabled: true, volume: 0.9, file: 'sounds/notify.wav' },
   },

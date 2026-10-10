@@ -120,15 +120,40 @@ function Resolve-Asset([string]$rel) {
 
 $WhalePng = Resolve-Asset 'widget/assets/whale.png'
 
+# ⚠️ 鲸鱼图片带第三方版权、不入库（见 .gitignore / README 许可一节）。
+#    没有它挂件就是一块透明的空白窗口，什么都看不见 —— 与其让人对着一无所知的空白发懵，
+#    不如第一次启动就把话说明白：要自己放一张图，放哪，什么样的能用。
+if (-not ($WhalePng -and (Test-Path -LiteralPath $WhalePng))) {
+    Write-WidgetLog "缺鲸鱼图: $WhalePng -> 给出指引并退出"
+    $msg = "没有找到小鲸鱼图片：`r`n`r`n    $WhalePng`r`n`r`n" +
+           "这张图片带第三方版权，没有随仓库一起分发，需要你自己准备一张 PNG 放到上面这个路径。`r`n" +
+           "要求：带透明背景、四周别留大块透明边（挂件会自动裁掉），方图或竖图都可以。`r`n`r`n" +
+           "放好之后再启动一次挂件就能看到它了。"
+    if (-not $SnapshotTo) {
+        try {
+            [System.Windows.Forms.MessageBox]::Show($msg, 'wb-sound-widget 缺少素材',
+                [System.Windows.Forms.MessageBoxButtons]::OK,
+                [System.Windows.Forms.MessageBoxIcon]::Warning) | Out-Null
+        } catch {}
+    }
+    exit 1
+}
+
 # ---------------------------------------------------------------------- 配置
 $DefaultConfig = [ordered]@{
     sound = [ordered]@{
         mute    = $false
-        done    = [ordered]@{ enabled = $true; volume = 1.0;  file = 'sounds/presets/minecraft-exp-orb.wav' }
+        # ⚠️ 默认音效必须指向**随仓库分发**的自制音效（sounds/ 下那三枚）。
+        #    sounds/presets/ 里的素材带版权、不入库，新 clone 的机器上根本没有这些文件，
+        #    默认值指向它们会让别人 clone 完发现「任务完成不响」。
+        #    想用预置音效的话，把文件放回 sounds/presets/ 再在配置里改过来即可。
+        done    = [ordered]@{ enabled = $true; volume = 1.0;  file = 'sounds/task-done.wav' }
         ask     = [ordered]@{ enabled = $true; volume = 1.0;  file = 'sounds/need-attention.wav' }
         notify  = [ordered]@{ enabled = $true; volume = 0.9;  file = 'sounds/notify.wav' }
-        press   = [ordered]@{ enabled = $true; volume = 0.55; file = 'sounds/presets/d1.mp3' }
-        release = [ordered]@{ enabled = $true; volume = 0.55; file = 'sounds/presets/d2.mp3' }
+        # 按下 / 松手的轻响默认关：对应的 d1.mp3 / d2.mp3 在 presets 里，同样不入库。
+        # 放好素材后把 enabled 改回 true 就有。
+        press   = [ordered]@{ enabled = $false; volume = 0.55; file = 'sounds/presets/d1.mp3' }
+        release = [ordered]@{ enabled = $false; volume = 0.55; file = 'sounds/presets/d2.mp3' }
     }
     events   = [ordered]@{ done = $true; ask = $true; notify = $true }
     bubble   = [ordered]@{ autoCloseMs = 4600; showOnEvent = $true }

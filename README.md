@@ -3,10 +3,30 @@
 给 WorkBuddy（CodeBuddy Code）加两件事：
 
 1. **两枚完全不同的提示音**
-   - 🎵 **任务完成音** —— 一轮任务跑完时响（默认是参考插件同款：Minecraft 经验球）
+   - 🎵 **任务完成音** —— 一轮任务跑完时响（默认是自制合成音，可换成自己喜欢的任何音频）
    - 🔔 **请求 / 授权音** —— WorkBuddy 需要你批准授权、或需要你回答问题时响（默认是自制的一声"叮-咚"，和完成音完全不一样）
    - 另外附赠一枚轻量的**普通提醒音**（给非授权的通知用）
-2. **一只常驻桌面的小鲸鱼挂件** —— 形象和 [DSH 小鲸鱼记账挂件](https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget) 同款：小鲸鱼本体 + 冒泡提示。**不依赖 WorkBuddy 也能用**，任何程序都能让它冒泡、出声。
+2. **一只常驻桌面的小鲸鱼挂件** —— 形象参考 [DSH 小鲸鱼记账挂件](https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget)：小鲸鱼本体 + 冒泡提示。**不依赖 WorkBuddy 也能用**，任何程序都能让它冒泡、出声。
+
+---
+
+## 快速开始（给第一次用的人）
+
+```bash
+git clone https://github.com/waxabble-png/wb-sound-widget.git
+cd wb-sound-widget
+powershell -ExecutionPolicy Bypass -File install.ps1
+```
+
+装完**重启一次 WorkBuddy**，之后就不用管了。
+
+> ⚠️ **小鲸鱼图片需要自备**：`widget/assets/whale.png` 带第三方版权、仓库里没有，
+> 第一次启动挂件会弹窗告诉你缺什么、要放到哪。放好再启动一次就能看到它了。
+> 不执着于鲸鱼形象的话，放**任意一张带透明背景的 PNG** 也行 —— 挂件会自动把四周的透明边裁掉。
+>
+> 三枚默认提示音是自制合成的，clone 下来就能响；`sounds/presets/` 里的预置音效同样不入库，想要自己补。
+
+安装方式有两种（全局钩子 / 标准 WorkBuddy 插件），见下面「三、安装」和「4）换一种装法」。
 
 ---
 
