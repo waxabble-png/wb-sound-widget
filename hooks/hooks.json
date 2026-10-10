@@ -1,0 +1,96 @@
+{
+  "description": "wb-sound-widget：任务完成 / 请求授权的提示音与桌面小鲸鱼挂件",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CODEBUDDY_PLUGIN_ROOT}/hooks/notify.mjs\" session-start --via-plugin",
+            "description": "WorkBuddy 启动 / 会话开始 → 拉起小鲸鱼挂件",
+            "async": true,
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CODEBUDDY_PLUGIN_ROOT}/hooks/notify.mjs\" session-end --via-plugin",
+            "description": "WorkBuddy 退出 / 会话结束 → 关掉小鲸鱼挂件",
+            "async": false,
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CODEBUDDY_PLUGIN_ROOT}/hooks/notify.mjs\" done --via-plugin",
+            "description": "一轮任务结束 → 播放「任务完成」提示音并冒泡",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "FinalStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CODEBUDDY_PLUGIN_ROOT}/hooks/notify.mjs\" done --via-plugin",
+            "description": "整个任务收尾 → 播放「任务完成」提示音并冒泡",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CODEBUDDY_PLUGIN_ROOT}/hooks/notify.mjs\" notify --via-plugin",
+            "description": "通知事件：permission_prompt 归为「请求/授权音」，其余归为普通提醒音",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CODEBUDDY_PLUGIN_ROOT}/hooks/notify.mjs\" ask --via-plugin",
+            "description": "需要你批准授权 → 播放「请求/授权」提示音",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Elicitation": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CODEBUDDY_PLUGIN_ROOT}/hooks/notify.mjs\" ask --via-plugin",
+            "description": "需要你回答问题 → 播放「请求/授权」提示音",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

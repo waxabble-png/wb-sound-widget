@@ -1,0 +1,69 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Users/<你的用户名>/.workbuddy/wb-sound-widget/hooks/notify.mjs\" done",
+            "description": "一轮任务结束 → 任务完成提示音",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "FinalStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Users/<你的用户名>/.workbuddy/wb-sound-widget/hooks/notify.mjs\" done",
+            "description": "任务收尾 → 任务完成提示音",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Users/<你的用户名>/.workbuddy/wb-sound-widget/hooks/notify.mjs\" notify",
+            "description": "通知事件（permission_prompt 自动归为请求音）",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Users/<你的用户名>/.workbuddy/wb-sound-widget/hooks/notify.mjs\" ask",
+            "description": "需要你批准授权 → 请求提示音",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Elicitation": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Users/<你的用户名>/.workbuddy/wb-sound-widget/hooks/notify.mjs\" ask",
+            "description": "需要你回答问题 → 请求提示音",
+            "async": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "wb-sound-widget",
+  "version": "1.1.0",
+  "description": "任务完成提示音 + 请求/授权提示音（两枚音效完全不同），外加一只常驻桌面、可脱离 WorkBuddy 单独使用的小鲸鱼挂件。",
+  "description_en": "Distinct sounds for task completion and for permission/input requests, plus a floating whale desktop widget that works outside WorkBuddy too.",
+  "author": {
+    "name": "本地自制"
+  },
+  "license": "MIT",
+  "keywords": ["sound", "notification", "hooks", "widget", "whale", "提示音", "挂件"],
+  "hooks": "./hooks/hooks.json",
+  "defaultEnabled": true
+}

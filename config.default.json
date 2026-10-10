@@ -1,0 +1,22 @@
+{
+  "sound": {
+    "mute": false,
+    "done": { "enabled": true, "volume": 1.0, "file": "sounds/presets/minecraft-exp-orb.wav" },
+    "ask": { "enabled": true, "volume": 1.0, "file": "sounds/need-attention.wav" },
+    "notify": { "enabled": true, "volume": 0.9, "file": "sounds/notify.wav" },
+    "press": { "enabled": true, "volume": 0.55, "file": "sounds/presets/d1.mp3" },
+    "release": { "enabled": true, "volume": 0.55, "file": "sounds/presets/d2.mp3" }
+  },
+  "events": { "done": true, "ask": true, "notify": true },
+  "bubble": { "autoCloseMs": 4600, "showOnEvent": true },
+  "widget": {
+    "scale": 1.0,
+    "x": null,
+    "y": null,
+    "autoStart": true,
+    "autoFlip": true,
+    "flipped": null,
+    "bindToWorkBuddy": true
+  },
+  "dedupeMs": 1200
+}
